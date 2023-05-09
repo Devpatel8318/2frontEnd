@@ -7,15 +7,15 @@ export function UserContextProvider({ children }) {
     const [ready, setReady] = useState(false);
 
     useEffect(() => {
-        console.log(user);
+        // console.log(user);
         if (!user) {
 
             axios.post('/userdata', {
                 token: localStorage.getItem('jwttoken'),
             }).then((response) => {
                const {name,email,_id}  = response.data;
-               console.log({name,email,_id});
-                    console.log(response.data);
+            //    console.log({name,email,_id});
+                    // console.log(response.data);
                     setUser({name,email,_id});
                     setReady(true);
 

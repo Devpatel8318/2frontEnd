@@ -5,7 +5,7 @@ import { UserContext } from "../UserContext";
 export default function LoginPage() {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
-    const [redirect, setRedirect] = useState(null);
+    const [redirect, setRedirect] = useState(false);
     const { user, setUser } = useContext(UserContext)
 
     async function userLogin(ev) {
@@ -30,7 +30,7 @@ export default function LoginPage() {
             console.log(data);
             if (data.mymessage === "ok") {
                 const userDoc = data.userDoc;
-                alert("Logged In")
+                alert("Logged In");
                 setUser(userDoc);
                 setRedirect(true);
                 localStorage.setItem("jwttoken", data.data2);
@@ -44,11 +44,10 @@ export default function LoginPage() {
         }
     }
 
-    if (!(user === null || user ==="null" || user === undefined)) {
+    if (!(user === null || user === "null" || user === undefined || user.name === undefined || user.email === undefined)) {
         console.log(user);
         console.log(redirect);
         return <Navigate to={"/"} />
-
     }
 
     if (redirect) {

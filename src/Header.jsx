@@ -7,10 +7,13 @@ export default function Header(){
 
 
   function linkSetter(){
-    if(user === undefined || user === null | user ==="null"){
+    console.log("linkSetter called");
+    if(user === undefined || user === null | user ==="null" || user.name === undefined || user.email === undefined){
+      console.log("link setter User is not defined");
       return "/login";
     }else{
-      return "/accounts";
+      console.log("link setter user is defined", user);
+      return "/account";
     }
   }
  
@@ -40,7 +43,7 @@ export default function Header(){
 
 
 
-    <Link to={linkSetter} className="flex items-center gap-2 px-4 py-2 border border-gray-300 rounded-full">
+    <Link to={linkSetter()} className="flex items-center gap-2 px-4 py-2 border border-gray-300 rounded-full">
       <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
         <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
       </svg>
