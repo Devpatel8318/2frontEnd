@@ -11,7 +11,7 @@ export default function LoginPage() {
     async function userLogin(ev) {
         try {
             ev.preventDefault();
-            const req = await fetch("http://localhost:4000/login", {
+            const req = await fetch("https://twohotelbackend.onrender.com/login", {
                 method: "POST",
                 // credentials:false,
                 credentials: "include",
@@ -44,7 +44,9 @@ export default function LoginPage() {
         }
     }
 
-    if (user) {
+    if (!(user === null || user ==="null" || user === undefined)) {
+        console.log(user);
+        console.log(redirect);
         return <Navigate to={"/"} />
 
     }

@@ -18,7 +18,7 @@ function ProfilePage() {
     async function logout() {
         try {
 
-            await fetch("http://localhost:4000/logout", {
+            await fetch("https://twohotelbackend.onrender.com/logout", {
                 method: "POST",
                 credentials: "include",
                 headers: {

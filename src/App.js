@@ -12,7 +12,7 @@ import SinglePlace from "./pages/SinglePlace";
 import BookingsPage from "./pages/BookingsPage";
 // import SingleBookingPage from "./pages/SingleBookingPage";
 
-axios.defaults.baseURL = "http://localhost:4000";
+axios.defaults.baseURL = "https://twohotelbackend.onrender.com";
 function App() {
 
   return (
