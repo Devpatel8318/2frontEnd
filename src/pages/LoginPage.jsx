@@ -47,7 +47,7 @@ export default function LoginPage() {
     if (!(user === null || user === "null" || user === undefined || user.name === undefined || user.email === undefined)) {
         console.log(user);
         console.log(redirect);
-        return <Navigate to={"/"} />
+        return <Navigate to={"/account"} />
     }
 
     if (redirect) {
