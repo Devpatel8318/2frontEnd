@@ -10,6 +10,7 @@ export default function IndexPage() {
     useEffect(() => {
 
         axios.get('/places').then((response) => {
+            console.log(response.data);
             setLoading(false);
             setPlaces(response.data);
         });
@@ -34,7 +35,7 @@ export default function IndexPage() {
                 <Link to={'/place/' + place._id} key={place._id} >
                     <div className="flex mb-2 bg-gray-500 rounded-2xl">
                         {place.photos?.[0] && (
-                            <img className="object-cover rounded-2xl aspect-square" src={place.photos?.[0]} alt="" />
+                            <img className="object-cover rounded-2xl aspect-square" src={place.photos} alt="" />
                         )}
                     </div>
                     <h2 className="font-bold">{place.address}</h2>
